@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <title>Manage Players</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+  <script src="../js/firebase.js"></script>
+  <script src="../js/teams-api.js"></script>
+  <script src="../js/players-admin.js" defer></script>
+</head>
+<body class="dark-bg scrollable">
+  <h1 class="title">Players</h1>
+
+  <div class="card">
+    <h2>Add Player</h2>
+    <input id="newPlayerName" class="input" placeholder="Name">
+
+    <p>Big Team (from WC API):</p>
+    <select id="newPlayerBigTeam" class="input"></select>
+
+    <p>Small Teams (hold Ctrl / Cmd to select multiple):</p>
+    <select id="newPlayerSmallTeams" class="input" multiple size="8"></select>
+
+    <label style="display:flex;align-items:center;gap:6px;margin:8px 0 10px;">
+      <input type="checkbox" id="newPlayerIsAdmin">
+      <span>Admin user</span>
+    </label>
+    <button class="btn" onclick="addPlayer()">Add</button>
+  </div>
+
+  <h2 class="subtitle">All Players</h2>
+  <div id="playersList"></div>
+
+  <div style="text-align:center; margin-top:15px;">
+    <button class="btn" onclick="location.href='admin.html'">Back</button>
+  </div>
+</body>
+</html>
